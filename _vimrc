@@ -6,6 +6,9 @@ behave mswin
 " 设置包括vundle和初始化相关的runtime path
 set rtp+=$HOME/.vim/bundle/Vundle.vim/
 call vundle#begin('$HOME/.vim/bundle/')
+" Linux版请用下面的
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 " 另一种选择, 指定一个vundle安装插件的路径
 "call vundle#begin('~/some/path/here')
 
@@ -75,7 +78,9 @@ function MyDiff()
 endfunction
 
 " 禁止备份
-:set nobackup
+set noundofile
+set nobackup
+set noswapfile
 
 " 设置编码自动识别, 中文引号显示
 set fileencodings=utf-8,gbk
@@ -99,4 +104,3 @@ set mouse=a
   
 " 启用行号  
 set nu
-
