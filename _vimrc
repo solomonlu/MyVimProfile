@@ -3,6 +3,10 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+
+set nocompatible              " required
+filetype off                  " required
+
 " 设置包括vundle和初始化相关的runtime path
 set rtp+=$HOME/.vim/bundle/Vundle.vim/
 call vundle#begin('$HOME/.vim/bundle/')
