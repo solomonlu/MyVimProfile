@@ -38,7 +38,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " Install Vim-go  
-Plugin 'fatih/vim-go' 
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tmhedberg/SimpylFold'
 
 " 你的所有插件需要在下面这行之前
 call vundle#end()            " 必须
@@ -108,3 +110,21 @@ set mouse=a
   
 " 启用行号  
 set nu
+
+" NERDTree 配置
+" Ctrl+N 打开 /关闭
+map <C-n> :NERDTreeToggle<CR>
+" 当不带参数打开 Vim 时自动加载项目树
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" 当所有文件关闭时关闭项目树窗格
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" 不显示这些文件
+let NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules'] "ignore files in NERDTree
+" 不显示项目树上额外的信息，例如帮助、提示什么的
+let NERDTreeMinimalUI=1
+
+" SimpylFold 配置
+set foldmethod=indent
+nnoremap <space> za             " 用空格来切换折叠状态
+
